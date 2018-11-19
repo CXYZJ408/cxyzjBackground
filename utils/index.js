@@ -18,19 +18,21 @@ export function dataURLtoFile (dataUrl, filename) {//base64转file
   while (n--) {
     u8arr[n] = bstr.charCodeAt(n)
   }
-  return new File([u8arr], filename, {type: mime})
+  return new File([u8arr], filename, { type: mime })
 }
-export function param2Obj(data) {
 
-    return JSON.parse(
-        '{"' +
-        decodeURIComponent(data)
-            .replace(/"/g, '\\"')
-            .replace(/&/g, '","')
-            .replace(/=/g, '":"') +
-        '"}'
-    )
+export function param2Obj (data) {
+
+  return JSON.parse(
+    '{"' +
+    decodeURIComponent(data)
+      .replace(/"/g, '\\"')
+      .replace(/&/g, '","')
+      .replace(/=/g, '":"') +
+    '"}'
+  )
 }
+
 export function transformTime (time) {
   if (_.isString(time)) {
     time = parseInt(time)
@@ -44,9 +46,11 @@ export function transformTime (time) {
   let s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds())
   return Y + M + D + h + m + s
 }
-export function firstUpperCase(str) {
-  return str.toLowerCase().replace(/( |^)[a-z]/g, (L) => L.toUpperCase());
+
+export function firstUpperCase (str) {
+  return str.toLowerCase().replace(/( |^)[a-z]/g, (L) => L.toUpperCase())
 }
+
 export function setInterval (callback, interval) {
   const now = Date.now
   let startTime = now()

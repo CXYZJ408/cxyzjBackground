@@ -41,59 +41,59 @@
     </v-layout>
 </template>
 <script>
-    import {LoginApi} from '../api/LoginApi'
-    import Status from "../utils/status";
-    import axios from "axios";
-    import {UserApi} from "../api/UserAPI";
+  import { LoginApi } from '../api/LoginApi'
+  import Status from '../utils/status'
+  import axios from 'axios'
+  import { UserApi } from '../api/UserAPI'
 
-    let $cookie
-    let $loginApi
-    export default {
-        head: {
-            title: '程序员之家后台管理系统 - 登录'
-        },
-        data: function () {
-            return {
-                show: false,
-                valid: false,
-                userName: '',
-                password: '',
-                passwordRules:
-                    [v => !!v || '密码不可为空']
-            }
-        },
-        methods: {
-            login() {
-              /*  let $userApi = new UserApi(this.$store)
-                $userApi.getUserSimple().then(res => {
-                    console.log(res)
-                })*/
-                 $loginApi.login(this.userName, this.password).then(res => {
-                     this.handleLoginResult(res)
-                 }).catch(() => {
-                     this.$message.error('出错啦！！')
-                 })
-            },
-            handleLoginResult(res) {
-                let status = res.status
+  let $cookie
+  let $loginApi
+  export default {
+    head: {
+      title: '程序员之家后台管理系统 - 登录'
+    },
+    data: function () {
+      return {
+        show: false,
+        valid: false,
+        userName: '',
+        password: '',
+        passwordRules:
+          [v => !!v || '密码不可为空']
+      }
+    },
+    methods: {
+      login () {
+        /*  let $userApi = new UserApi(this.$store)
+          $userApi.getUserSimple().then(res => {
+              console.log(res)
+          })*/
+        $loginApi.login(this.userName, this.password).then(res => {
+          this.handleLoginResult(res)
+        }).catch(() => {
+          this.$message.error('出错啦！！')
+        })
+      },
+      handleLoginResult (res) {
+        let status = res.status
 
-                if (status === Status.WRONG_PASSWORD) {
-                    this.$message.error('密码错误！！')
-                } else if (status === Status.NONE_USER) {
-                    this.$message.error('当前用户不存在！！')
-                } else if (status === Status.SUCCESS) {
-                    this.$store.commit('login', res.data)
-                    $cookie.set('token', res.data.token)
-                    this.$router.push({path: `/`})
-                }
-            }
-        },
-        mounted() {
-            //初始化
-            $cookie = require('js-cookie')
-            $loginApi = new LoginApi(this.$store)
+        if (status === Status.WRONG_PASSWORD) {
+          this.$message.error('密码错误！！')
+        } else if (status === Status.NONE_USER) {
+          this.$message.error('当前用户不存在！！')
+        } else if (status === Status.SUCCESS) {
+          this.$store.commit('login', res.data)
+          $cookie.set('token', res.data.token)
+          this.$router.push({ path: `/` })
         }
+      }
+    },
+    mounted () {
+      //初始化
+      $cookie = require('js-cookie')
+      $loginApi = new LoginApi(this.$store)
     }
+  }
 </script>
 <style scoped lang="scss">
     a {

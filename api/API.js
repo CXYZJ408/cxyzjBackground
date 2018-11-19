@@ -1,6 +1,6 @@
 import $status from '../utils/status'
 import $axios from '../utils/axios'
-import {requestMethods} from './Request'
+import { requestMethods } from './Request'
 
 let $store
 let _ = require('lodash')
@@ -115,7 +115,7 @@ async function proxy (request, returnType) {//批量请求发送
       }
     }
   }).catch((e) => {
-    return {statusCode: 404, message: 'Post not found'}
+    return { statusCode: 404, message: 'Post not found' }
   })
 }
 
