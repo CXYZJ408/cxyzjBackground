@@ -1,10 +1,10 @@
 <template>
-    <v-layout wrap row justify-center class="card">
-
+    <v-layout wrap row justify-center class="login">
         <v-flex md5 sm8 xs12 lg4 xl3 class="text-md-center">
-            <span><strong class="font-8 login-title">程序员之家后台管理系统登录</strong></span>
+            <span><strong class="font-10 login-title">程序员之家后台管理系统登录</strong></span>
             <v-form v-model="valid" ref="form" lazy-validation>
                 <v-text-field
+                        autofocus
                         class="pt-4 px-3"
                         prepend-icon="account_circle"
                         v-model="userName"
@@ -52,6 +52,9 @@
     head: {
       title: '程序员之家后台管理系统 - 登录'
     },
+    components: {
+
+    },
     data: function () {
       return {
         show: false,
@@ -64,10 +67,6 @@
     },
     methods: {
       login () {
-        /*  let $userApi = new UserApi(this.$store)
-          $userApi.getUserSimple().then(res => {
-              console.log(res)
-          })*/
         $loginApi.login(this.userName, this.password).then(res => {
           this.handleLoginResult(res)
         }).catch(() => {
@@ -104,8 +103,8 @@
         height: 30px;
     }
 
-    .card {
-        padding-top: 15em;
+    .login {
+        padding-top: 14em;
         background: #2D3A4B;
     }
 

@@ -10,8 +10,10 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'the back-stage management for cxyzj' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' },
+      { rel: 'stylesheet', href: 'http://at.alicdn.com/t/font_795495_uhween7ivb.css' },//阿里icon设置
+
     ]
   },
   router: {

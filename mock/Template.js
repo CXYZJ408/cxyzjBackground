@@ -36,3 +36,12 @@ export const user = {
   }
 }
 
+export const webData = {
+  status: 200,
+  data: {
+    new_users: Random.natural(100, 8000),
+    daily_users: Random.natural(100, 8000),
+    new_articles: Random.natural(100, 8000),
+    new_comments: Random.natural(100, 8000)
+  }
+}

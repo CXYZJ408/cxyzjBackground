@@ -1,0 +1,105 @@
+<template>
+    <v-toolbar flat color="white" card id="navbar">
+        <img src="/logo-small.png" width="60px">
+        <v-toolbar-title class="grey--text text--darken-2 font-4"><strong>程序员之家后台管理系统</strong></v-toolbar-title>
+        <v-breadcrumbs :items="items" class="clear-padding " slot="extension">
+            <v-icon slot="divider">chevron_right</v-icon>
+        </v-breadcrumbs>
+        <v-spacer></v-spacer>
+        <v-avatar>
+            <img src="/img/711a3cf9-4d2a-4880-a9e8-b8bf80604ef5.jpeg" alt="">
+        </v-avatar>
+        <span class="capital mx-2"><strong>admin</strong></span>
+        <v-btn round color="red" depressed small dark>登出</v-btn>
+    </v-toolbar>
+</template>
+
+<script>
+  export default {
+    name: 'index',
+    watch: {
+      '$route' (to) {
+        this.routeTO(to)
+      }
+    },
+    data: function () {
+      return {
+        breadcrumbs: {
+          '/': [
+            {
+              text: '首页',
+              disabled: true,
+              href: '/'
+            }
+          ],
+          '/slide': [
+            {
+              text: '轮播图管理',
+              disabled: true,
+              href: '/slide'
+            }
+          ],
+          '/user_manage/admin': [
+            {
+              text: '用户管理',
+              disabled: false,
+            },
+            {
+              text: '管理员',
+              disabled: true,
+              href: '/user_manage/admin'
+            }
+          ],
+          '/user_manage/user': [
+            {
+              text: '用户管理',
+              disabled: false,
+            },
+            {
+              text: '普通用户',
+              disabled: true,
+              href: '/user_manage/user'
+            }
+          ]
+        },
+        items: [
+          {
+            text: '首页',
+            disabled: true,
+            href: '/'
+          }
+        ]
+      }
+    },
+    methods: {
+      routeTO (currentRoute) {
+        this.items = this.breadcrumbs[currentRoute.path]
+      }
+    },
+    mounted () {
+      this.routeTO(this.$route)
+    }
+  }
+</script>
+
+<style>
+    #navbar .v-toolbar__content, .v-toolbar__extension {
+        border-bottom: 1px solid #d8dce5;
+    }
+
+    #navbar .v-toolbar__extension {
+        height: 35px !important;
+        font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
+    }
+
+    #navbar a {
+        color: #3498DB;
+    }
+
+    #navbar .theme--light.v-breadcrumbs .v-breadcrumbs__divider, .theme--light.v-breadcrumbs .v-breadcrumbs__item--disabled {
+        color: grey !important;
+        pointer-events: none;
+    }
+
+</style>
+
