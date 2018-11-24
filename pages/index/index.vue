@@ -13,6 +13,10 @@
                 </v-layout>
             </v-card>
         </v-flex>
+        <v-flex md12 class="text-md-center mt-5">
+            <div class="font-10 grey--text mt-5"><strong>欢迎访问程序员之家后台管理系统</strong></div>
+            <!--TODO 后期换成数据的可视化-->
+        </v-flex>
     </v-layout>
 </template>
 

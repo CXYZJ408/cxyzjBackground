@@ -13,7 +13,7 @@
                           no-action
                           v-if="item.hasChild"
                   >
-                <v-list-tile slot="activator" active-class="active">
+                <v-list-tile slot="activator">
                     <v-list-tile-action>
                         <v-icon color="#BFCBD9">{{item.icon}}</v-icon>
                     </v-list-tile-action>
@@ -73,12 +73,15 @@
         font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
     }
 
-    .active {
-        color: #409EFF;
-    }
+
 </style>
 <style>
     #sidebar .theme--light.v-icon {
         color: #BFCBD9 !important;
+    }
+
+    #sidebar .primary--text {
+        color: #409EFF !important;
+
     }
 </style>

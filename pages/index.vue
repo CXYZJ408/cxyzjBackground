@@ -1,9 +1,9 @@
 <template>
-    <v-layout row wrap class="index">
-        <div class="sidebar">
+    <v-layout  class="index">
+        <v-flex  class="sidebar">
             <sidebar :sidebarData="sidebarData"></sidebar>
-        </div>
-        <v-flex>
+        </v-flex>
+        <v-flex md11>
             <v-layout>
                 <v-flex>
                     <navbar></navbar>
@@ -46,5 +46,8 @@
 <style scoped>
     .index {
         background-color: #F0F2F5;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        height: 100vh;
     }
 </style>

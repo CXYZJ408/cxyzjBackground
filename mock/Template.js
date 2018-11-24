@@ -45,3 +45,21 @@ export const webData = {
     new_comments: Random.natural(100, 8000)
   }
 }
+
+export const slideItem = {
+  status: 200,
+  data: {
+    slide_list: [
+      {
+        id: Random.id(),
+        img_url: '/img/1.jpg',
+        link: Random.url()
+      },
+      {
+        id: Random.id(),
+        img_url: '/img/2.jpg',
+        link: Random.url()
+      }
+    ]
+  }
+}

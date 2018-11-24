@@ -12,7 +12,7 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' },
-      { rel: 'stylesheet', href: 'http://at.alicdn.com/t/font_795495_uhween7ivb.css' },//阿里icon设置
+      { rel: 'stylesheet', href: 'http://at.alicdn.com/t/font_795495_e9h8cmbf4x.css' },//阿里icon设置
 
     ]
   },
@@ -23,10 +23,14 @@ module.exports = {
   plugins: [
     { src: '~/plugins/vuetify.js' },
     { src: '~/plugins/element.js' },
+    { src: '~/plugins/swiper.js', ssr: false },
     { src: '~/mock/MockData.js' }
   ],
   css: ['~/assets/style/common.css',//全局css配置文件
-    '~/assets/style/app.styl'],
+    '~/assets/style/app.styl',
+    '~/assets/style/transition.css',
+    'swiper/dist/css/swiper.css',
+    'element-ui/lib/theme-chalk/index.css',],
   /*
   ** Customize the progress bar color
   */

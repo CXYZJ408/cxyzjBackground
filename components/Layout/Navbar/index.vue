@@ -1,12 +1,12 @@
 <template>
-    <v-toolbar flat color="white" card id="navbar">
-        <img src="/logo-small.png" width="60px">
+    <v-toolbar flat color="white" card id="navbar" >
+        <img src="/logo-small.png" class="nav-item">
         <v-toolbar-title class="grey--text text--darken-2 font-4"><strong>程序员之家后台管理系统</strong></v-toolbar-title>
         <v-breadcrumbs :items="items" class="clear-padding " slot="extension">
             <v-icon slot="divider">chevron_right</v-icon>
         </v-breadcrumbs>
         <v-spacer></v-spacer>
-        <v-avatar>
+        <v-avatar class="nav-item">
             <img src="/img/711a3cf9-4d2a-4880-a9e8-b8bf80604ef5.jpeg" alt="">
         </v-avatar>
         <span class="capital mx-2"><strong>admin</strong></span>
@@ -83,12 +83,15 @@
 </script>
 
 <style>
+    #navbar .v-toolbar__content{
+        height: 7.5vh !important;
+    }
     #navbar .v-toolbar__content, .v-toolbar__extension {
         border-bottom: 1px solid #d8dce5;
     }
 
     #navbar .v-toolbar__extension {
-        height: 35px !important;
+        height: 4vh !important;
         font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
     }
 
@@ -102,4 +105,8 @@
     }
 
 </style>
-
+<style scoped>
+    .nav-item{
+        height: 5vh;
+    }
+</style>
