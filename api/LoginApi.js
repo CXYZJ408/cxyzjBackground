@@ -11,10 +11,12 @@ export class LoginApi extends Api {
   login (userName, password, send = true) {
     let url = auth + '/login'
     let params = {
-      userName: userName,
+      login_name: userName,
       password: password
     }
     super.pushRequest = new Request(requestMethods.POST, url, this.login, params)
     return super.judgeSend(send)
   }
 }
+
+

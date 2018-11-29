@@ -52,6 +52,13 @@ export default {//导出方法
         $store = store
       }
     }
+  },
+  setToken (token) {
+    $store = {
+      state: {
+        token: token
+      }
+    }
   }
 }
 

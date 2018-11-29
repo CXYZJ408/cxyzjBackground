@@ -6,7 +6,7 @@
             width="200"
             id="sidebar"
     >
-        <v-list class="sidebar-theme" dense>
+        <v-list class="sidebar-theme" dense :expand="false">
             <span v-for="(item,index) in sidebarData" :key="index">
                   <v-list-group
                           value="true"
@@ -50,18 +50,7 @@
       }
     },
     data: () => {
-      return {
-        admins: [
-          ['Management', 'people_outline'],
-          ['Settings', 'settings']
-        ],
-        cruds: [
-          ['Create', 'add'],
-          ['Read', 'insert_drive_file'],
-          ['Update', 'update'],
-          ['Delete', 'delete']
-        ]
-      }
+      return {}
     }
   }
 </script>

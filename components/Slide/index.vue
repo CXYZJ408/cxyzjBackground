@@ -102,11 +102,14 @@
 </template>
 
 <script>
-  import { guid } from '../../utils'
+  import { dataURLtoFile, guid } from '../../utils'
+  import { UtilsApi } from '../../api/UtilsApi'
+  import Constant from '../../utils/constant'
 
   let $sortable = require('sortablejs')
   let sort
   let _ = require('lodash')
+  let $utilApi
   const defaultLink = 0, defaultImg = 1, notDefault = 2
   export default {
     name: 'index',
@@ -221,7 +224,6 @@
           _.forEach(this.slideIndex, (item) => {
             newSlideItems.push(this.slideItems[map[item]])
           })
-          this.$message.success('保存成功！')
           return newSlideItems
         } else {
           return false
@@ -300,7 +302,11 @@
         // 读取成功后的回调
         reader.onloadend = (option) => {
           //读取图片
-          this.slideItems[index].img_url = option.target.result
+          //TODO 图片上传API
+          let image =option.target.result
+          this.slideItems[index].img_url = image
+          // let file = dataURLtoFile(image)
+          // $utilApi.uploadImage(Constant.IMAGE_OTHER,)
           this.$message.success('图片上传成功！')
         }
         this.hasEdit = true
@@ -311,6 +317,7 @@
           animation: 300,//动画时间
           handle: '.icon-move-slide',//选择用于拖拽的元素
           onEnd: (evt) => {//拖拽排序结束后的回调
+            this.hasEdit = true
             let from = evt.oldIndex
             let to = evt.newIndex
             console.log(from, to)
@@ -319,6 +326,7 @@
             this.slideIndex.splice(to, 0, el)
           },
           onMove: (evt) => {
+            this.hasEdit = true
             return evt.related.className.indexOf('exclude') === -1
           }
         })
@@ -326,6 +334,7 @@
     },
     mounted () {
       this.setSort()
+      $utilApi = new UtilsApi(this.$store)
     },
     created () {
       this.setSlideItems()

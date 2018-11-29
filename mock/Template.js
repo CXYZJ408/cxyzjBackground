@@ -15,9 +15,9 @@ export const loginUser = {
   status: 200,
   data: {
     user: {
-      role: 'admin',
-      head_url: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
-      nickname: Random.name(),
+      role_id: Random.id(),
+      head_url: '/img/711a3cf9-4d2a-4880-a9e8-b8bf80604ef5.jpeg',
+      login_name: Random.name(),
       user_id: Random.id(),
     },
     token: 'admin'

@@ -1,5 +1,5 @@
 <template>
-    <div class="card-panel" @mouseenter="mouseHover(true)" @mouseleave="mouseHover(false)">
+    <div class="card-panel" @click="show" @mouseenter="mouseHover(true)" @mouseleave="mouseHover(false)">
         <div class="card-panel-icon-wrapper" :style="{background:backColor}">
             <v-icon class="card-panel-icon" :color="hover?'white':cardPanel.color">
                 {{cardPanel.icon}}
@@ -32,6 +32,9 @@
       }
     },
     methods: {
+      show () {
+        this.$message.info('数据可视化，待添加.....')
+      },
       mouseHover (hover) {
         if (hover) {
           this.hover = true

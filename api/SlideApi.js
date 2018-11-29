@@ -13,4 +13,13 @@ export class SlideApi extends Api {
     super.pushRequest = new Request(requestMethods.GET, url, this.getSlideItems)
     return super.judgeSend(send)
   }
+
+  saveSlideItem (newSlideItem, send = true) {
+    let url = auth + '/save_slides'
+    let params = {
+      slide_list: newSlideItem
+    }
+    super.pushRequest = new Request(requestMethods.POST, url, this.saveSlideItem, params)
+    return super.judgeSend(send)
+  }
 }

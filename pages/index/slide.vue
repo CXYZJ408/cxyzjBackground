@@ -1,16 +1,17 @@
 <template xmlns:v-swiper="http://www.w3.org/1999/xhtml">
-    <v-layout class="slide" wrap row justify-center>
+    <v-layout class="slide pt-4" wrap row justify-center>
         <transition name="fade">
-            <v-flex md12 class="pt-4 pl-2" v-if="edit">
-                <slideShow :slideList="slideList" @saveSlide="saveSlide" @quit="quit" @saveQuitSlide="saveQuitSlide"></slideShow>
+            <v-flex md12 class="pl-2 " v-if="edit">
+                <slideShow :slideList="slideList" @saveSlide="saveSlide" @quit="quit"
+                           @saveQuitSlide="saveQuitSlide"></slideShow>
             </v-flex>
         </transition>
-        <v-flex md6 class="py-4 text-md-left pl-4">
+        <v-flex md6 class="pb-4 text-md-left pl-4">
             <div class="font-8 grey--text"><strong>轮播图预览:</strong></div>
         </v-flex>
-        <v-flex md6 class="py-4 text-md-right pr-4">
+        <v-flex md6 class="pb-4 text-md-right pr-4">
             <transition name="fade">
-                <v-btn small round color="blue" v-if="!edit" dark depressed @click="edit=true">
+                <v-btn small round color="blue" v-if="!edit" dark depressed @click="toEdit">
                     <v-icon size="16" class="mr-1">edit</v-icon>
                     编辑
                 </v-btn>
@@ -66,6 +67,7 @@
     },
     data: function () {
       return {
+        height: 0,
         slideList: [],
         edit: false,
         swiperOption: {
@@ -89,15 +91,41 @@
       }
     },
     methods: {
+      toEdit () {
+        this.edit = true
+      },
       quit () {
         this.edit = false
       },
       saveSlide (newSlide) {
-        this.slideList = newSlide
+        this.save(newSlide)
       },
       saveQuitSlide (newSlide) {
-        this.slideList = newSlide
-        this.edit = false
+        this.save(newSlide).then(() => {
+          this.edit = false
+        }).catch(() => {
+          this.$message.error('保存失败！')
+        })
+      },
+      save (newSlide) {
+        console.log(newSlide)
+        return new Promise((resolve, reject) => {
+          this.$message.success('保存成功！')
+          this.slideList = newSlide
+          resolve(true)
+          //TODO 保存API
+          /*
+          $slideApi.saveSlideItem(newSlide).then(res => {
+
+            if (res.status === Status.SUCCESS) {
+              this.$message.success('保存成功！')
+              this.slideList = newSlide
+              resolve(true)
+            }
+          }).catch(() => {
+            reject(false)
+          })*/
+        })
       },
       getSlideList () {
         $slideApi.getSlideItems().then(res => {
@@ -123,5 +151,12 @@
     .slide::-webkit-scrollbar {
         width: 0 !important
     }
+
+    .slide-show {
+        transition: all 0.8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+        overflow: hidden;
+        width: 100%;
+    }
+
 
 </style>

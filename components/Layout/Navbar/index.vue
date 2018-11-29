@@ -1,5 +1,5 @@
 <template>
-    <v-toolbar flat color="white" card id="navbar" >
+    <v-toolbar flat color="white" card id="navbar">
         <img src="/logo-small.png" class="nav-item">
         <v-toolbar-title class="grey--text text--darken-2 font-4"><strong>程序员之家后台管理系统</strong></v-toolbar-title>
         <v-breadcrumbs :items="items" class="clear-padding " slot="extension">
@@ -7,10 +7,15 @@
         </v-breadcrumbs>
         <v-spacer></v-spacer>
         <v-avatar class="nav-item">
-            <img src="/img/711a3cf9-4d2a-4880-a9e8-b8bf80604ef5.jpeg" alt="">
+            <img :src="$store.state.user.head_url" alt="">
         </v-avatar>
-        <span class="capital mx-2"><strong>admin</strong></span>
-        <v-btn round color="red" depressed small dark>登出</v-btn>
+        <span class="capital mx-2"><strong>{{$store.state.user.login_name}}</strong></span>
+        <v-tooltip bottom>
+            <v-btn icon depressed @click="quit" slot="activator">
+                <v-icon>iconfont icon-quit</v-icon>
+            </v-btn>
+            <span>退出</span>
+        </v-tooltip>
     </v-toolbar>
 </template>
 
@@ -42,7 +47,7 @@
           '/user_manage/admin': [
             {
               text: '用户管理',
-              disabled: false,
+              disabled: false
             },
             {
               text: '管理员',
@@ -53,12 +58,48 @@
           '/user_manage/user': [
             {
               text: '用户管理',
-              disabled: false,
+              disabled: false
             },
             {
               text: '普通用户',
               disabled: true,
               href: '/user_manage/user'
+            }
+          ],
+          '/authority/authority_manage': [
+            {
+              text: '权限系统',
+              disabled: false
+            },
+            {
+              text: '权限管理',
+              disabled: true,
+              href: '/authority/authority_manage'
+            }
+          ],
+          '/authority/role_manage': [
+            {
+              text: '权限系统',
+              disabled: false
+            },
+            {
+              text: '角色管理',
+              disabled: true,
+              href: '/authority/role_manage'
+            }
+          ],
+          '/department_manage': [
+            {
+              text: '部门管理',
+              disabled: true,
+              href: '/department_manage'
+            }
+          ],
+          '/article_manage': [
+            {
+              text: '文章管理',
+              disabled: true,
+              href: '/article_manage'
             }
           ]
         },
@@ -74,6 +115,11 @@
     methods: {
       routeTO (currentRoute) {
         this.items = this.breadcrumbs[currentRoute.path]
+      },
+      quit () {
+        this.$store.commit('logout')
+        this.$router.push({ path: `/login` })
+
       }
     },
     mounted () {
@@ -83,9 +129,10 @@
 </script>
 
 <style>
-    #navbar .v-toolbar__content{
+    #navbar .v-toolbar__content {
         height: 7.5vh !important;
     }
+
     #navbar .v-toolbar__content, .v-toolbar__extension {
         border-bottom: 1px solid #d8dce5;
     }
@@ -106,7 +153,7 @@
 
 </style>
 <style scoped>
-    .nav-item{
+    .nav-item {
         height: 5vh;
     }
 </style>

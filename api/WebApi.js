@@ -9,7 +9,8 @@ export class WebApi extends Api {
   }
 
   getWebData (send = true) {
-    super.pushRequest = new Request(requestMethods.GET, web, this.getWebData)
+    let url = web+'/info'
+    super.pushRequest = new Request(requestMethods.GET, url, this.getWebData)
     return super.judgeSend(send)
   }
 }

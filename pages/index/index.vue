@@ -29,11 +29,10 @@
 
   let _ = require('lodash')
   let $webApi
+
   export default {
     name: 'index',
-    asyncData ({ store }) {
 
-    },
     methods: {
       getWebDailyData () {
         $webApi.getWebData().then(res => {

@@ -1,14 +1,16 @@
-export default async function ({ store, route, redirect, error, params, req }) {
+export default async ({ store, route, redirect, error, params, req }) => {
 //用户路由拦截
-  console.log(store.state.isLogin)
-  if (!store.state.isLogin) {
-    //未登陆了
-    // return redirect('/login')
+/*  if (!store.state.isLogin) {
+    // 未登陆
+    console.log(store.state.isLogin)
+    if (route.fullPath !== '/login') {
+      return redirect('/login')
+    }
   } else {
-    /*if (route.fullPath === '/login') {
+    /!*if (route.fullPath === '/login') {
       return redirect('/')
-    }*/
+    }*!/
     //todo 去掉注释
-  }
+  }*/
 
 }
