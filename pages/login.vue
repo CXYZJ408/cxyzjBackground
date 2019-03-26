@@ -31,7 +31,7 @@
 
             </v-form>
             <v-layout justify-center>
-                <v-flex md12 class="py-4">
+                <v-flex md12 class="py-4 px-3">
                     <v-btn block round large class="display-1 white--text" color="blue "
                            @click="login">登录
                     </v-btn>

@@ -1,7 +1,7 @@
 import { Api } from './API'
 import { Request, requestMethods } from './Request'
 
-const auth = '/v1/admin/auth'
+const auth = '/v1/admin/administrator'
 
 export class LoginApi extends Api {
   constructor (store) {

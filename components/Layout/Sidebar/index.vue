@@ -6,12 +6,13 @@
             width="200"
             id="sidebar"
     >
-        <v-list class="sidebar-theme" dense :expand="false">
-            <span v-for="(item,index) in sidebarData" :key="index">
+        <v-list class="sidebar-theme" dense :expand="true">
+            <div v-for="(item,index) in sidebarData" :key="index">
                   <v-list-group
                           value="true"
                           no-action
                           v-if="item.hasChild"
+                          v-model="item.active"
                   >
                 <v-list-tile slot="activator">
                     <v-list-tile-action>
@@ -31,13 +32,14 @@
                 </v-list-tile-action>
                 <v-list-tile-title>{{item.name}}</v-list-tile-title>
             </v-list-tile>
-            </span>
+            </div>
         </v-list>
     </v-navigation-drawer>
 </template>
 
 <script>
   export default {
+    //导航侧边栏
     name: 'sidebar',
     props: {
       sidebarData: {

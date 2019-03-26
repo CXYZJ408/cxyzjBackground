@@ -7,6 +7,10 @@
     font-size: 25px;
 }
 
+.v-card--hover {
+    cursor: default !important;
+}
+
 body::-webkit-scrollbar {
     display: none;
 }
@@ -60,43 +64,43 @@ a {
 }
 
 .font-1 {
-    font-size: 14px!important;
+    font-size: 14px !important;
 }
 
 .font-2 {
-    font-size: 16px!important;
+    font-size: 16px !important;
 }
 
 .font-3 {
-    font-size: 18px!important;
+    font-size: 18px !important;
 }
 
 .font-4 {
-    font-size: 20px!important;
+    font-size: 20px !important;
 }
 
 .font-5 {
-    font-size: 22px!important;
+    font-size: 22px !important;
 }
 
 .font-6 {
-    font-size: 24px!important;
+    font-size: 24px !important;
 }
 
 .font-7 {
-    font-size: 26px!important;
+    font-size: 26px !important;
 }
 
 .font-8 {
-    font-size: 28px!important;
+    font-size: 28px !important;
 }
 
 .font-9 {
-    font-size: 30px!important;
+    font-size: 30px !important;
 }
 
 .font-10 {
-    font-size: 35px!important;
+    font-size: 35px !important;
 }
 
 :focus {

@@ -7,7 +7,7 @@
         </div>
         <div class="card-panel-description">
             <div class="card-panel-text">{{cardPanel.name}}</div>
-            <count-to :start-val="0" :end-val="cardPanel.num" :duration="2600" class="card-panel-num"/>
+            <count-to :start-val="cardPanel.start" :end-val="cardPanel.end" :duration="2600" class="card-panel-num"/>
         </div>
     </div>
 </template>
@@ -33,7 +33,7 @@
     },
     methods: {
       show () {
-        this.$message.info('数据可视化，待添加.....')
+        this.$router.push(this.cardPanel.to)
       },
       mouseHover (hover) {
         if (hover) {

@@ -37,6 +37,17 @@
               href: '/'
             }
           ],
+          '/new_user': [
+            {
+              text: '首页',
+              to: '/'
+            },
+            {
+              text: '新增用户数据',
+              disabled: true,
+              href: '/new_user'
+            }
+          ],
           '/slide': [
             {
               text: '轮播图管理',

@@ -2,6 +2,9 @@ module.exports = {
   /*
   ** Headers of the page
   */
+  server: {
+    port: 3001, // default: 3000
+  },
   head: {
     title: '程序员之家后台管理',
     meta: [
@@ -12,8 +15,7 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' },
-      { rel: 'stylesheet', href: 'http://at.alicdn.com/t/font_795495_kkfaxes9jhr.css' },//阿里icon设置
-
+      { rel: 'stylesheet', href: 'http://at.alicdn.com/t/font_795495_je2q78ru5dc.css' },//阿里icon设置
     ]
   },
   router: {
@@ -21,10 +23,12 @@ module.exports = {
   },
   ssr: false,
   plugins: [
-    { src: '~/plugins/vuetify.js' },
-    { src: '~/plugins/element.js' },
-    { src: '~/plugins/swiper.js', ssr: false },
-    { src: '~/mock/MockData.js' }
+    { src: '~/plugins/vuetify.js' },//vuetify框架
+    { src: '~/plugins/element.js' },//element框架
+    { src: '~/plugins/swiper.js', ssr: false },//轮播图插件
+    { src: '~/mock/MockData.js' },//mock数据服务器
+    { src: '~/plugins/echarts.js', ssr: false },//可视化数据插件
+    { src: '~/plugins/animeJS.js' },//js动画库
   ],
   css: ['~/assets/style/common.css',//全局css配置文件
     '~/assets/style/app.styl',
@@ -40,16 +44,7 @@ module.exports = {
   */
   build: {
     extractCSS: true,
-    // extend(config, ctx) {
-    //     // Run ESLint on save
-    //     if (ctx.isDev && ctx.isClient) {
-    //         config.module.rules.push({
-    //             enforce: 'pre',
-    //             test: /\.(js|vue)$/,
-    //             loader: 'eslint-loader',
-    //             exclude: /(node_modules)/
-    //         })
-    //     }
-    // }
+    transpile: ['vue-echarts', 'resize-detector']
   }
 }
+

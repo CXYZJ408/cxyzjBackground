@@ -32,6 +32,7 @@
             name: '用户管理',
             link: '/user_manage',
             hasChild: true,
+            active:false,
             children: [{ name: '管理员', link: '/admin' }, { name: '普通用户', link: '/user' }]
           },
           {
@@ -39,6 +40,7 @@
             name: '权限系统',
             link: '/authority',
             hasChild: true,
+            active:false,
             children: [{ name: '权限管理', link: '/authority_manage' }, { name: '角色管理', link: '/role_manage' }]
           },
           {
@@ -65,8 +67,6 @@
 <style scoped>
     .index {
         background-color: #F0F2F5;
-        overflow-y: hidden;
         overflow-x: hidden;
-        height: 100vh;
     }
 </style>
